@@ -1,8 +1,8 @@
 import React from 'react'
-import Menu from '../components/menu'
+import DropDown from '../components/drop-down'
 export default {
   title: 'Clue Menu'
 }
 
-export const basic = () => <Menu />
-export const defaultProps = () => <Menu />
+export const basic = () => <DropDown />
+export const defaultProps = () => <DropDown />
