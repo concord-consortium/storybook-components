@@ -8,7 +8,15 @@ export default {
   },
 }
 
-export const defaultProps = () => <DropDown />
+export const defaultProps = () =>
+  <DropDown
+    title='test'
+    items={[
+      {text: '1. one'},
+      {text: '2. two'},
+      {text: '3. three'},
+      {text: '4. four'},
+    ]}/>
 
 const props = {
   title: 'Untitled Menu',
