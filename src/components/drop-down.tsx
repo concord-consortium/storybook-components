@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import PropTypes from 'prop-types';
 import styled from 'styled-components'
 import { Colors } from '../themes/clue'
 
@@ -122,10 +123,7 @@ const ItemsContainer = styled.div<IDiscosureProps>`
   max-height: ${props => (props.open ? "300px" : "0px")};
 `
 
-/**
-- Use an avatar for attributing actions or content to specific users.
-- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
-**/
+
 const DropDown: React.FC<IMenuProps> = (props: IMenuProps) => {
   const [opened, toggleOpen] = useState(false)
   const toggle = () => toggleOpen(!opened)
@@ -149,14 +147,31 @@ const DropDown: React.FC<IMenuProps> = (props: IMenuProps) => {
 }
 
 DropDown.defaultProps = {
-  title: 'Untitled Menu',
+  title: 'Dropdown Menu',
   selected: 0,
   items: [
-    {text: '1.1 Solving a Mystery: An Introduction to Similarity'},
-    {text: '1.2 Stretching a Figure: Comparing Similar Figures'},
-    {text: '1.3 Scaling Up and Down: Corresponding Sides and Angles'},
-    {text: 'd item'}
+    {text: '1. first item'},
+    {text: '2. second item'},
+    {text: '3. third item'},
+    {text: '4. fouth item'}
   ]
 }
+const itemType = PropTypes.shape({
+  text: PropTypes.string.isRequired,
+  selected: PropTypes.bool,
+  disabled: PropTypes.bool,
+  link: PropTypes.string,
+  onClick: PropTypes.func
+});
+
+DropDown.propTypes = {
+  title: PropTypes.string.isRequired,
+  selected: PropTypes.number,
+  // items: PropTypes.arrayOf(itemType).isRequired
+};
+/**
+- Use an avatar for attributing actions or content to specific users.
+- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
+**/
 
 export default DropDown;

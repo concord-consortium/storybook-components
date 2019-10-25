@@ -1,22 +1,24 @@
 import React from 'react'
 import DropDown from '../components/drop-down'
 export default {
-  title: 'Clue Menu',
+  title: 'Clue Dropdown Menu',
   parameters: {
     component: DropDown,
-    componentSubtitle: 'Displays an image that represents a user or organization',
+    componentSubtitle: 'A dropdown menu used in clue.',
   },
 }
+
+export const defaultProps = () => <DropDown />
 
 const props = {
   title: 'Untitled Menu',
   selected: 0,
   items: [
-    {text: '1.1 a'},
-    {text: '1.2 b'},
-    {text: '1.3 c'},
+    {text: '1.1 Solving a Mystery: An Introduction to Similarity'},
+    {text: '1.2 Stretching a Figure: Comparing Similar Figures'},
+    {text: '1.3 Scaling Up and Down: Corresponding Sides and Angles'},
     {text: 'd item'}
   ]
 }
-export const shortNames = () => <DropDown {...props} />
-export const defaultProps = () => <DropDown />
+export const clueSample = () => <DropDown {...props} />
+
