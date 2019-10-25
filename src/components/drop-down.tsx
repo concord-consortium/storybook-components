@@ -27,6 +27,7 @@ const Row = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-basis: 1;
+  align-self: stretch;
 `
 const DropDownButton = styled(Row)`
   margin-left: 1em;
@@ -42,6 +43,7 @@ const Column = styled.div`
 const MenuItemDiv = styled(Row)`
   padding:  6px;
   margin: 0px;
+  align-self: stretch;
   justify-content: flex-start;
   &:hover {
     background-color: ${Colors.Sage['sage-dark-1']};
@@ -120,6 +122,10 @@ const ItemsContainer = styled.div<IDiscosureProps>`
   max-height: ${props => (props.open ? "300px" : "0px")};
 `
 
+/**
+- Use an avatar for attributing actions or content to specific users.
+- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
+**/
 const DropDown: React.FC<IMenuProps> = (props: IMenuProps) => {
   const [opened, toggleOpen] = useState(false)
   const toggle = () => toggleOpen(!opened)
