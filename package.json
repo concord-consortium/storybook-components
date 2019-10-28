@@ -19,10 +19,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-lib": "tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-typescript"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +47,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
+    "@babel/preset-typescript": "^7.6.0",
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-links": "^5.2.5",
     "@storybook/addons": "^5.2.5",

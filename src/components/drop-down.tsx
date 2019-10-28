@@ -14,6 +14,7 @@ interface IMenuItemProps {
 interface IMenuProps {
   title: string
   selected?: number
+  width?: number
   items: IMenuItemProps[]
 }
 
@@ -45,6 +46,7 @@ const MenuItemDiv = styled(Row)`
   padding:  6px;
   margin: 0px;
   align-self: stretch;
+  flex: 1;
   justify-content: flex-start;
   &:hover {
     background-color: ${Colors.Sage['sage-dark-1']};
@@ -82,11 +84,11 @@ const MenuItem: React.FC<IMenuItemProps> = (props: IMenuItemProps) => {
 }
 
 
-const DropDownBack = styled(Column)<IDiscosureProps>`
+const DropDownBack = styled(Column)<{open:boolean}>`
   border-radius: 5px;
   height: ${p => p.open ? 'auto' : '40px'};
   box-shadow: ${p => p.open ? '2px 2px 5px hsla(0, 10%, 10%, 0.3)' : 'none'};
-  width: 296px;
+  width: auto;
   background-color: ${p => p.open
     ? Colors.Sage['sage-light-2']
     : Colors.Sage['sage-light-1']
@@ -120,6 +122,7 @@ const ItemsContainer = styled.div<IDiscosureProps>`
   transition: all 0.3s;
   overflow: hidden;
   height: auto;
+  width: 100%;
   max-height: ${props => (props.open ? "300px" : "0px")};
 `
 
@@ -127,12 +130,12 @@ const ItemsContainer = styled.div<IDiscosureProps>`
 const DropDown: React.FC<IMenuProps> = (props: IMenuProps) => {
   const [opened, toggleOpen] = useState(false)
   const toggle = () => toggleOpen(!opened)
-  const {title, items, selected} = props;
+  const {title, items, selected, width} = props;
   const displayTitle = selected != undefined && items[selected]
     ? items[selected].text
     : title
   return (
-    <DropDownBack className='dropdown' open={opened}aria-controls='menu'>
+    <DropDownBack className='dropdown' open={opened} aria-controls='menu'>
       <DropDownButton onClick={toggle}>
         <div>{displayTitle}</div>
         <DisclosureWidgetContainer>
