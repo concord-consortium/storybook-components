@@ -1,20 +1,11 @@
 {
-  "name": "storybook-components",
+  "name": "cc-components",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
-    "@storybook/addon-docs": "^5.2.5",
-    "@storybook/addon-knobs": "^5.2.5",
-    "@types/jest": "24.0.19",
-    "@types/node": "12.11.5",
-    "@types/react": "16.9.9",
-    "@types/react-dom": "16.9.2",
-    "@types/styled-components": "^4.1.19",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0",
-    "styled-components": "^4.4.0",
-    "typescript": "3.6.4"
+    "styled-components": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,6 +42,20 @@
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-links": "^5.2.5",
     "@storybook/addons": "^5.2.5",
-    "@storybook/react": "^5.2.5"
-  }
+    "@storybook/react": "^5.2.5",
+    "@storybook/addon-docs": "^5.2.5",
+    "@storybook/addon-knobs": "^5.2.5",
+    "@types/jest": "24.0.19",
+    "@types/node": "12.11.5",
+    "@types/react": "16.9.9",
+    "@types/react-dom": "16.9.2",
+    "@types/styled-components": "^4.1.19",
+    "react-scripts": "3.2.0",
+    "typescript": "3.6.4"
+  },
+  "description": "A collection of react components",
+  "main": "./dist/index.js",
+  "repository": "git@github.com:concord-consortium/storybook-components.git",
+  "author": "Noah Paessel <knowuh@gmail.com>",
+  "license": "MIT"
 }

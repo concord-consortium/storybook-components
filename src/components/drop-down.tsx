@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types';
 import styled from 'styled-components'
 import { Colors } from '../themes/clue'
 
-interface IMenuItemProps {
+export interface IMenuItemProps {
   text: string
   selected?: boolean
   disabled?: boolean
@@ -11,7 +10,7 @@ interface IMenuItemProps {
   onClick?: (source: IMenuItemProps) => void
 }
 
-interface IMenuProps {
+export interface IMenuProps {
   title: string
   selected?: number
   width?: number
@@ -83,10 +82,14 @@ const MenuItem: React.FC<IMenuItemProps> = (props: IMenuItemProps) => {
   )
 }
 
-
+const DropDownContainer = styled(Column)`
+  height: 40px;
+  overflow: visible;
+`
 const DropDownBack = styled(Column)<{open:boolean}>`
   border-radius: 5px;
   height: ${p => p.open ? 'auto' : '40px'};
+  /* height: 40px; */
   box-shadow: ${p => p.open ? '2px 2px 5px hsla(0, 10%, 10%, 0.3)' : 'none'};
   width: auto;
   background-color: ${p => p.open
@@ -100,7 +103,7 @@ const DropDownBack = styled(Column)<{open:boolean}>`
   &:hover {
     background-color: ${p => p.open
       ? Colors.Sage['sage-light-2']
-      : Colors.Sage['sage']
+      : Colors.Sage['sage-dark-2']
     };
   }
   transition: 0.1s;
@@ -126,26 +129,41 @@ const ItemsContainer = styled.div<IDiscosureProps>`
   max-height: ${props => (props.open ? "300px" : "0px")};
 `
 
-
 const DropDown: React.FC<IMenuProps> = (props: IMenuProps) => {
   const [opened, toggleOpen] = useState(false)
   const toggle = () => toggleOpen(!opened)
-  const {title, items, selected, width} = props;
+  const {title, items, selected } = props;
+  const clickHandler = (i: IMenuItemProps) => {
+    toggle();
+    if(i.onClick) {
+      i.onClick(i)
+    }
+    else if(i.link) {
+      console.log(`link clicked ${i.link}`)
+    }
+  }
   const displayTitle = selected != undefined && items[selected]
     ? items[selected].text
     : title
   return (
-    <DropDownBack className='dropdown' open={opened} aria-controls='menu'>
-      <DropDownButton onClick={toggle}>
-        <div>{displayTitle}</div>
-        <DisclosureWidgetContainer>
-          <DisclosureWidget open={opened}>▼</DisclosureWidget>
-        </DisclosureWidgetContainer>
-      </DropDownButton>
-      <ItemsContainer open={opened}>
-        { items.map( (i,idx) => <MenuItem selected={idx == selected} {...i}/>) }
-      </ItemsContainer>
-    </DropDownBack>
+    <DropDownContainer>
+      <DropDownBack className='dropdown' open={opened} aria-controls='menu'>
+        <DropDownButton onClick={toggle}>
+          <div>{displayTitle}</div>
+          <DisclosureWidgetContainer>
+            <DisclosureWidget open={opened}>▼</DisclosureWidget>
+          </DisclosureWidgetContainer>
+        </DropDownButton>
+        <ItemsContainer open={opened}>
+          { items.map( (i,idx) =>
+            <MenuItem {...i}
+              onClick ={clickHandler}
+              selected={idx == selected}
+            />)
+          }
+        </ItemsContainer>
+      </DropDownBack>
+    </DropDownContainer>
   );
 }
 
@@ -159,22 +177,9 @@ DropDown.defaultProps = {
     {text: '4. fouth item'}
   ]
 }
-const itemType = PropTypes.shape({
-  text: PropTypes.string.isRequired,
-  selected: PropTypes.bool,
-  disabled: PropTypes.bool,
-  link: PropTypes.string,
-  onClick: PropTypes.func
-});
 
-DropDown.propTypes = {
-  title: PropTypes.string.isRequired,
-  selected: PropTypes.number,
-  // items: PropTypes.arrayOf(itemType).isRequired
-};
 /**
 - Use an avatar for attributing actions or content to specific users.
 - The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
 **/
-
 export default DropDown;

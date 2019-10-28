@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var Sage = {
     'sage-light-3': '#f1f6ed',
     'sage-light-2': '#e4ecdb',
@@ -72,4 +70,4 @@ var Rust = {
     'rust-dark-5': '#8a2e30',
     'rust-text': '#640206'
 };
-exports.Colors = { Sage: Sage, Sky: Sky, Peacock: Peacock, Golden: Golden, Terra: Terra, Rust: Rust };
+export var Colors = { Sage: Sage, Sky: Sky, Peacock: Peacock, Golden: Golden, Terra: Terra, Rust: Rust };
