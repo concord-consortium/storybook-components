@@ -2,6 +2,19 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
     if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
     return cooked;
 };
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -13,7 +26,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Colors } from '../themes/clue';
 var Row = styled.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  flex-basis: 1;\n  align-self: stretch;\n"], ["\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  flex-basis: 1;\n  align-self: stretch;\n"])));
@@ -24,8 +37,9 @@ var SelectedIndicator = styled.div(templateObject_5 || (templateObject_5 = __mak
     ";\n  ", ":hover & {\n    color: ", ";\n  }\n\n"])), function (p) { return p.selected ? '●' : ''; }, function (p) { return p.selected
     ? Colors.Sage["sage-dark-3"]
     : 'hsla(0,0%,0%,0)'; }, MenuItemDiv, Colors.Sage["sage-light-2"]);
+var MenuItemText = styled.div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  flex: 2;\n  text-align: left;\n"], ["\n  flex: 2;\n  text-align: left;\n"])));
 var MenuItem = function (props) {
-    var text = props.text, selected = props.selected, link = props.link, onClick = props.onClick;
+    var text = props.text, selected = props.selected, onClick = props.onClick;
     var handleClick = function () {
         if (onClick) {
             onClick(props);
@@ -33,58 +47,66 @@ var MenuItem = function (props) {
     };
     return (React.createElement(MenuItemDiv, { key: text, onClick: handleClick },
         React.createElement(SelectedIndicator, { selected: selected }, "\u25CF"),
-        text));
+        React.createElement(MenuItemText, null, text)));
 };
-var DropDownContainer = styled(Column)(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  height: 40px;\n  overflow: visible;\n"], ["\n  height: 40px;\n  overflow: visible;\n"])));
-var DropDownBack = styled(Column)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  border-radius: 5px;\n  height: ", ";\n  /* height: 40px; */\n  box-shadow: ", ";\n  width: auto;\n  background-color: ", ";\n  color: ", ";\n  font-family: Lato;\n  font-size: 13px;\n  padding: 4px;\n  &:hover {\n    background-color: ", ";\n  }\n  transition: 0.1s;\n"], ["\n  border-radius: 5px;\n  height: ", ";\n  /* height: 40px; */\n  box-shadow: ", ";\n  width: auto;\n  background-color: ",
+var DropDownContainer = styled(Column)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  max-height: 40px;\n  overflow: visible;\n"], ["\n  max-height: 40px;\n  overflow: visible;\n"])));
+var DropDownBack = styled(Column)(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  border-radius: 5px;\n  height: ", ";\n  max-width: 250px;\n  box-shadow: ", ";\n  width: auto;\n  background-color: ", ";\n  color: ", ";\n  font-family: Lato;\n  font-size: 13px;\n  padding: 4px;\n  &:hover {\n    background-color: ", ";\n  }\n  transition: 0.1s;\n"], ["\n  border-radius: 5px;\n  height: ", ";\n  max-width: 250px;\n  box-shadow: ", ";\n  width: auto;\n  background-color: ",
     ";\n  color: ", ";\n  font-family: Lato;\n  font-size: 13px;\n  padding: 4px;\n  &:hover {\n    background-color: ",
     ";\n  }\n  transition: 0.1s;\n"])), function (p) { return p.open ? 'auto' : '40px'; }, function (p) { return p.open ? '2px 2px 5px hsla(0, 10%, 10%, 0.3)' : 'none'; }, function (p) { return p.open
     ? Colors.Sage['sage-light-2']
     : Colors.Sage['sage-light-1']; }, Colors.Sage['sage-text'], function (p) { return p.open
     ? Colors.Sage['sage-light-2']
     : Colors.Sage['sage-dark-2']; });
-var DisclosureWidgetContainer = styled.div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  width: 20px;\n  height: 20px;\n"], ["\n  width: 20px;\n  height: 20px;\n"])));
-var DisclosureWidget = styled.div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  align-self: center;\n  text-align: center;\n  color: ", ";\n  transform: ", ";\n  transition-duration: 0.3s;\n"], ["\n  align-self: center;\n  text-align: center;\n  color: ", ";\n  transform: ", ";\n  transition-duration: 0.3s;\n"])), Colors.Sage["sage-dark-3"], function (props) { return props.open ? 'rotate(180deg)' : 'rotate(0deg)'; });
-var ItemsContainer = styled.div(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n  transition: all 0.3s;\n  overflow: hidden;\n  height: auto;\n  width: 100%;\n  max-height: ", ";\n"], ["\n  transition: all 0.3s;\n  overflow: hidden;\n  height: auto;\n  width: 100%;\n  max-height: ", ";\n"])), function (props) { return (props.open ? "300px" : "0px"); });
-var DropDown = function (props) {
-    var _a = useState(false), opened = _a[0], toggleOpen = _a[1];
-    var toggle = function () { return toggleOpen(!opened); };
-    var title = props.title, items = props.items, selected = props.selected;
-    var clickHandler = function (i) {
-        toggle();
-        if (i.onClick) {
-            i.onClick(i);
-        }
-        else if (i.link) {
-            console.log("link clicked " + i.link);
-        }
+var DisclosureWidgetContainer = styled.div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  width: 20px;\n  height: 20px;\n"], ["\n  width: 20px;\n  height: 20px;\n"])));
+var DisclosureWidget = styled.div(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n  align-self: center;\n  text-align: center;\n  color: ", ";\n  transform: ", ";\n  transition-duration: 0.3s;\n"], ["\n  align-self: center;\n  text-align: center;\n  color: ", ";\n  transform: ", ";\n  transition-duration: 0.3s;\n"])), Colors.Sage["sage-dark-3"], function (props) { return props.open ? 'rotate(180deg)' : 'rotate(0deg)'; });
+var ItemsContainer = styled.div(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n  transition: all 0.3s;\n  height: auto;\n  width: 100%;\n  max-height: ", ";\n  overflow: ", ";\n"], ["\n  transition: all 0.3s;\n  height: auto;\n  width: 100%;\n  max-height: ", ";\n  overflow: ", ";\n"])), function (props) { return (props.open ? "400px" : "0px"); }, function (props) { return (props.open ? "auto" : "hidden"); });
+var DropDown = /** @class */ (function (_super) {
+    __extends(DropDown, _super);
+    function DropDown(props) {
+        var _this = _super.call(this, props) || this;
+        _this.toggleOpen = function () {
+            _this.setState({ opened: !_this.state.opened });
+        };
+        _this.clickOutside = function (event) {
+            var node = _this.innerRef.current;
+            if (node && !node.contains(event.target)) {
+                _this.setState({ opened: false });
+            }
+        };
+        _this.state = {
+            opened: false
+        };
+        _this.innerRef = React.createRef();
+        return _this;
+    }
+    DropDown.prototype.componentDidMount = function () {
+        document.addEventListener("mousedown", this.clickOutside);
     };
-    var displayTitle = selected != undefined && items[selected]
-        ? items[selected].text
-        : title;
-    return (React.createElement(DropDownContainer, null,
-        React.createElement(DropDownBack, { className: 'dropdown', open: opened, "aria-controls": 'menu' },
-            React.createElement(DropDownButton, { onClick: toggle },
-                React.createElement("div", null, displayTitle),
-                React.createElement(DisclosureWidgetContainer, null,
-                    React.createElement(DisclosureWidget, { open: opened }, "\u25BC"))),
-            React.createElement(ItemsContainer, { open: opened }, items.map(function (i, idx) {
-                return React.createElement(MenuItem, __assign({}, i, { onClick: clickHandler, selected: idx == selected }));
-            })))));
-};
-DropDown.defaultProps = {
-    title: 'Dropdown Menu',
-    selected: 0,
-    items: [
-        { text: '1. first item' },
-        { text: '2. second item' },
-        { text: '3. third item' },
-        { text: '4. fouth item' }
-    ]
-};
-/**
-- Use an avatar for attributing actions or content to specific users.
-- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
-**/
-export default DropDown;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
+    DropDown.prototype.componentWillUnmount = function () {
+        document.removeEventListener("mousedown", this.clickOutside);
+    };
+    DropDown.prototype.render = function () {
+        var _a = this.props, title = _a.title, items = _a.items, prefix = _a.prefix;
+        var opened = this.state.opened;
+        var selectedItem = items.find(function (i) { return i.selected; });
+        var displayTitle = selectedItem
+            ? selectedItem.text
+            : title;
+        return (React.createElement(DropDownContainer, { onClick: this.toggleOpen },
+            React.createElement(DropDownBack, { ref: this.innerRef, className: 'dropdown', open: opened, "aria-controls": 'menu' },
+                React.createElement(DropDownButton, null,
+                    prefix
+                        ? React.createElement("div", null,
+                            React.createElement("div", null, prefix),
+                            React.createElement("div", null, displayTitle))
+                        : React.createElement("div", null, displayTitle),
+                    React.createElement(DisclosureWidgetContainer, null,
+                        React.createElement(DisclosureWidget, { open: opened }, "\u25BC"))),
+                React.createElement(ItemsContainer, { open: opened }, items.map(function (i, idx) {
+                    return React.createElement(MenuItem, __assign({}, i, { key: idx }));
+                })))));
+    };
+    return DropDown;
+}(React.Component));
+export { DropDown };
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11;

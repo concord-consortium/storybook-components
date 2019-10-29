@@ -1,3 +1,3 @@
-import DropDown from './components/drop-down';
+import { DropDown, IMenuItemProps } from './components/drop-down';
 import { Colors } from './themes/clue';
-export { DropDown, Colors };
+export { DropDown, IMenuItemProps, Colors };

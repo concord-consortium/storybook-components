@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Colors } from '../themes/clue'
 
@@ -10,17 +10,9 @@ export interface IMenuItemProps {
   onClick?: (source: IMenuItemProps) => void
 }
 
-export interface IMenuProps {
-  title: string
-  selected?: number
-  width?: number
-  items: IMenuItemProps[]
-}
-
 interface IDiscosureProps {
   open?: boolean;
 }
-
 
 const Row = styled.div`
   display: flex;
@@ -66,9 +58,12 @@ const SelectedIndicator = styled.div<any>`
   }
 
 `
-
+const MenuItemText = styled.div`
+  flex: 2;
+  text-align: left;
+`
 const MenuItem: React.FC<IMenuItemProps> = (props: IMenuItemProps) => {
-  const {text, selected, link, onClick} = props
+  const {text, selected, onClick} = props
   const handleClick = () => {
     if (onClick) {
       onClick(props);
@@ -77,19 +72,19 @@ const MenuItem: React.FC<IMenuItemProps> = (props: IMenuItemProps) => {
   return (
     <MenuItemDiv key={text} onClick={handleClick}>
       <SelectedIndicator selected={selected}>●</SelectedIndicator>
-      {text}
+      <MenuItemText>{text}</MenuItemText>
     </MenuItemDiv>
   )
 }
 
 const DropDownContainer = styled(Column)`
-  height: 40px;
+  max-height: 40px;
   overflow: visible;
 `
 const DropDownBack = styled(Column)<{open:boolean}>`
   border-radius: 5px;
   height: ${p => p.open ? 'auto' : '40px'};
-  /* height: 40px; */
+  max-width: 250px;
   box-shadow: ${p => p.open ? '2px 2px 5px hsla(0, 10%, 10%, 0.3)' : 'none'};
   width: auto;
   background-color: ${p => p.open
@@ -123,63 +118,83 @@ const DisclosureWidget = styled.div<IDiscosureProps>`
 
 const ItemsContainer = styled.div<IDiscosureProps>`
   transition: all 0.3s;
-  overflow: hidden;
   height: auto;
   width: 100%;
-  max-height: ${props => (props.open ? "300px" : "0px")};
+  max-height: ${props => (props.open ? "400px" : "0px")};
+  overflow: ${props => (props.open ? "auto" : "hidden")};
 `
 
-const DropDown: React.FC<IMenuProps> = (props: IMenuProps) => {
-  const [opened, toggleOpen] = useState(false)
-  const toggle = () => toggleOpen(!opened)
-  const {title, items, selected } = props;
-  const clickHandler = (i: IMenuItemProps) => {
-    toggle();
-    if(i.onClick) {
-      i.onClick(i)
+interface IMenuState {
+  opened: boolean;
+}
+
+export interface IMenuProps {
+  title: string
+  selected?: number
+  prefix?: string
+  width?: number
+  items: IMenuItemProps[]
+}
+
+export class DropDown extends React.Component<IMenuProps, IMenuState> {
+  private innerRef: React.RefObject<HTMLDivElement>;
+  constructor(props: IMenuProps){
+    super(props)
+    this.state = {
+      opened: false
     }
-    else if(i.link) {
-      console.log(`link clicked ${i.link}`)
-    }
+    this.innerRef = React.createRef();
   }
-  const displayTitle = selected != undefined && items[selected]
-    ? items[selected].text
-    : title
-  return (
-    <DropDownContainer>
-      <DropDownBack className='dropdown' open={opened} aria-controls='menu'>
-        <DropDownButton onClick={toggle}>
-          <div>{displayTitle}</div>
-          <DisclosureWidgetContainer>
-            <DisclosureWidget open={opened}>▼</DisclosureWidget>
-          </DisclosureWidgetContainer>
-        </DropDownButton>
-        <ItemsContainer open={opened}>
-          { items.map( (i,idx) =>
-            <MenuItem {...i}
-              onClick ={clickHandler}
-              selected={idx == selected}
-            />)
-          }
-        </ItemsContainer>
-      </DropDownBack>
-    </DropDownContainer>
-  );
-}
 
-DropDown.defaultProps = {
-  title: 'Dropdown Menu',
-  selected: 0,
-  items: [
-    {text: '1. first item'},
-    {text: '2. second item'},
-    {text: '3. third item'},
-    {text: '4. fouth item'}
-  ]
-}
+  toggleOpen = () => {
+    this.setState({opened: !this.state.opened})
+  }
 
-/**
-- Use an avatar for attributing actions or content to specific users.
-- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
-**/
-export default DropDown;
+  clickOutside = (event: any) => {
+    const node = this.innerRef.current
+      if (node && !node.contains(event.target)) {
+        this.setState({opened: false})
+      }
+  }
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.clickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.clickOutside);
+  }
+
+  render() {
+    const {title, items, prefix } = this.props
+    const { opened } = this.state
+    const selectedItem = items.find(i=> i.selected)
+    const displayTitle = selectedItem
+      ? selectedItem.text
+      : title
+    return (
+      <DropDownContainer onClick={this.toggleOpen}>
+        <DropDownBack
+          ref={this.innerRef}
+          className='dropdown'
+          open={opened}
+          aria-controls='menu'>
+          <DropDownButton >
+            { prefix
+              ? <div><div>{prefix}</div><div>{displayTitle}</div></div>
+              : <div>{displayTitle}</div>
+            }
+            <DisclosureWidgetContainer>
+              <DisclosureWidget open={opened}>▼</DisclosureWidget>
+            </DisclosureWidgetContainer>
+          </DropDownButton>
+          <ItemsContainer open={opened}>
+            { items.map( (i,idx) =>
+              <MenuItem {...i} key={idx}/>)
+            }
+          </ItemsContainer>
+        </DropDownBack>
+      </DropDownContainer>
+    );
+  }
+}

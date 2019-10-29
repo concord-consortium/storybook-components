@@ -3,7 +3,7 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
     return cooked;
 };
 import React from 'react';
-import DropDown from '../components/drop-down';
+import { DropDown } from '../components/drop-down';
 import styled from 'styled-components';
 import { Colors } from '../themes/clue';
 export default {
@@ -15,6 +15,14 @@ export default {
 };
 export var shortNames = function () {
     return React.createElement(DropDown, { title: 'test', items: [
+            { text: '1. one' },
+            { text: '2. two' },
+            { text: '3. three' },
+            { text: '4. four' },
+        ] });
+};
+export var withPrefix = function () {
+    return React.createElement(DropDown, { title: 'test', prefix: 'prefix', items: [
             { text: '1. one' },
             { text: '2. two' },
             { text: '3. three' },
@@ -42,7 +50,10 @@ export var inClueHeader = function () {
     return React.createElement(Header, null,
         React.createElement(DropDown, { title: 'test', width: 200, items: [
                 { text: '1.1 Solving a Mystery: An Introduction to Similarity' },
-                { text: '1.2 Stretching a Figure: Comparing Similar Figures' },
+                {
+                    text: '1.2 Stretching a Figure: Comparing Similar Figures',
+                    selected: true,
+                },
                 { text: '1.3 Scaling Up and Down: Corresponding Sides and Angles' },
                 { text: 'd item' }
             ] }));

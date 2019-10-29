@@ -6,15 +6,23 @@ export interface IMenuItemProps {
     link?: string;
     onClick?: (source: IMenuItemProps) => void;
 }
+interface IMenuState {
+    opened: boolean;
+}
 export interface IMenuProps {
     title: string;
     selected?: number;
+    prefix?: string;
     width?: number;
     items: IMenuItemProps[];
 }
-declare const DropDown: React.FC<IMenuProps>;
-/**
-- Use an avatar for attributing actions or content to specific users.
-- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
-**/
-export default DropDown;
+export declare class DropDown extends React.Component<IMenuProps, IMenuState> {
+    private innerRef;
+    constructor(props: IMenuProps);
+    toggleOpen: () => void;
+    clickOutside: (event: any) => void;
+    componentDidMount(): void;
+    componentWillUnmount(): void;
+    render(): JSX.Element;
+}
+export {};

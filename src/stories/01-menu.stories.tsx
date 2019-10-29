@@ -1,5 +1,5 @@
 import React from 'react'
-import DropDown from '../components/drop-down'
+import { DropDown } from '../components/drop-down'
 import styled from 'styled-components'
 import { Colors } from '../themes/clue'
 
@@ -21,6 +21,18 @@ export const shortNames = () =>
       {text: '4. four'},
     ]}
   />
+  export const withPrefix = () =>
+  <DropDown
+    title='test'
+    prefix='prefix'
+    items={[
+      {text: '1. one'},
+      {text: '2. two'},
+      {text: '3. three'},
+      {text: '4. four'},
+    ]}
+  />
+
 
 export const clueMenu = () =>
   <DropDown
@@ -57,7 +69,7 @@ export const clueMenu = () =>
     align-items: center;
     background-color: ${Colors.Sage.sage};
   `
-  
+
   export const inClueHeader = () =>
     <Header>
       <DropDown
@@ -65,7 +77,10 @@ export const clueMenu = () =>
         width={200}
         items={[
           {text: '1.1 Solving a Mystery: An Introduction to Similarity'},
-          {text: '1.2 Stretching a Figure: Comparing Similar Figures'},
+          {
+            text: '1.2 Stretching a Figure: Comparing Similar Figures',
+            selected: true,
+          },
           {text: '1.3 Scaling Up and Down: Corresponding Sides and Angles'},
           {text: 'd item'}
         ]}
