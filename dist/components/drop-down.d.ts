@@ -18,6 +18,7 @@ export interface IMenuProps {
 }
 export declare class DropDown extends React.Component<IMenuProps, IMenuState> {
     private innerRef;
+    static readonly displayName = "DropDown";
     constructor(props: IMenuProps);
     toggleOpen: () => void;
     clickOutside: (event: any) => void;

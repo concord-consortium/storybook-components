@@ -86,3 +86,12 @@ export const clueMenu = () =>
         ]}
       />
     </Header>
+
+  export const emptyList = () =>
+    <Header>
+      <DropDown
+        title='test'
+        width={200}
+        items={[]}
+      />
+    </Header>

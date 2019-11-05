@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { DropDown } from '../components/drop-down';
 declare const _default: {
     title: string;

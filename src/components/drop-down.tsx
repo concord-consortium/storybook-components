@@ -22,6 +22,7 @@ const Row = styled.div`
   flex-basis: 1;
   align-self: stretch;
 `
+
 const DropDownButton = styled(Row)`
   margin-left: 1em;
 `
@@ -138,6 +139,8 @@ export interface IMenuProps {
 
 export class DropDown extends React.Component<IMenuProps, IMenuState> {
   private innerRef: React.RefObject<HTMLDivElement>;
+  static readonly displayName = 'DropDown'
+
   constructor(props: IMenuProps){
     super(props)
     this.state = {
@@ -168,7 +171,7 @@ export class DropDown extends React.Component<IMenuProps, IMenuState> {
   render() {
     const {title, items, prefix } = this.props
     const { opened } = this.state
-    const selectedItem = items.find(i=> i.selected)
+    const selectedItem = items && items.find(i=> i.selected)
     const displayTitle = selectedItem
       ? selectedItem.text
       : title

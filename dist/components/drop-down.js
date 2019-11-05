@@ -88,7 +88,7 @@ var DropDown = /** @class */ (function (_super) {
     DropDown.prototype.render = function () {
         var _a = this.props, title = _a.title, items = _a.items, prefix = _a.prefix;
         var opened = this.state.opened;
-        var selectedItem = items.find(function (i) { return i.selected; });
+        var selectedItem = items && items.find(function (i) { return i.selected; });
         var displayTitle = selectedItem
             ? selectedItem.text
             : title;
@@ -106,6 +106,7 @@ var DropDown = /** @class */ (function (_super) {
                     return React.createElement(MenuItem, __assign({}, i, { key: idx }));
                 })))));
     };
+    DropDown.displayName = 'DropDown';
     return DropDown;
 }(React.Component));
 export { DropDown };

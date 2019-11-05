@@ -10,8 +10,8 @@ export default {
     title: 'Clue Dropdown Menu',
     parameters: {
         component: DropDown,
-        componentSubtitle: 'A dropdown menu used in clue.',
-    },
+        componentSubtitle: 'A dropdown menu used in clue.'
+    }
 };
 export var shortNames = function () {
     return React.createElement(DropDown, { title: 'test', items: [
