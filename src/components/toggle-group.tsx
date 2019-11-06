@@ -2,26 +2,26 @@ import * as React from "react";
 import styled from 'styled-components'
 import { Colors } from '../themes/clue'
 
-type orientation = "horizontal" | "vertical";
+export type orientation = "horizontal" | "vertical";
 
-interface TabColor {
+export interface TabColor {
   color: string;
   background: string;
 }
 
-interface IToggleColors {
+export interface IToggleColors {
   selectedColor: TabColor;
   unselectedColor: TabColor;
   hoverColor: TabColor;
 }
 
-interface IOriented {
+export interface IOriented {
   orientation: orientation;
 }
 
 const ToggleGroupDiv = styled.div<IOriented>`
   display: flex;
-  flex-direction: ${p => p.orientation ===  "horizontal"
+  flex-direction: ${(p:IOriented) => p.orientation ===  "horizontal"
     ? "row"
     : "column"
   };
@@ -64,22 +64,22 @@ const ToggleButton = styled.div<IToggleColors & IOriented>`
 `;
 
 
-interface IToggleChoice {
+export interface IToggleChoice {
   label: string
   onClick?: () => void
   selected: boolean
   colors?: IToggleColors
 }
 
-interface IToggleGroupProps {
+export interface IToggleGroupProps {
   orientation: orientation;
   colors: IToggleColors;
   options: IToggleChoice[];
 }
 
-interface IState {}
+export interface IToggleGroupState {}
 
-export class ToggleGroup extends React.Component<IToggleGroupProps, IState> {
+export class ToggleGroup extends React.Component<IToggleGroupProps, IToggleGroupState> {
   public renderOption(option: IToggleChoice, index: number) {
     const {orientation} = this.props
     const colors = option.colors ? option.colors : this.props.colors;

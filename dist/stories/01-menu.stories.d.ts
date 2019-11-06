@@ -13,3 +13,4 @@ export declare const withPrefix: () => JSX.Element;
 export declare const clueMenu: () => JSX.Element;
 export declare const narrow: () => JSX.Element;
 export declare const inClueHeader: () => JSX.Element;
+export declare const emptyList: () => JSX.Element;

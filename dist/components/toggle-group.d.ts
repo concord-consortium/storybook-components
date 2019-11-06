@@ -1,28 +1,31 @@
 import * as React from "react";
-declare type orientation = "horizontal" | "vertical";
-interface TabColor {
+export declare type orientation = "horizontal" | "vertical";
+export interface TabColor {
     color: string;
     background: string;
 }
-interface IToggleColors {
+export interface IToggleColors {
     selectedColor: TabColor;
     unselectedColor: TabColor;
     hoverColor: TabColor;
 }
-interface IToggleChoice {
+export interface IOriented {
+    orientation: orientation;
+}
+export interface IToggleChoice {
     label: string;
     onClick?: () => void;
     selected: boolean;
     colors?: IToggleColors;
 }
-interface IToggleGroupProps {
+export interface IToggleGroupProps {
     orientation: orientation;
     colors: IToggleColors;
     options: IToggleChoice[];
 }
-interface IState {
+export interface IToggleGroupState {
 }
-export declare class ToggleGroup extends React.Component<IToggleGroupProps, IState> {
+export declare class ToggleGroup extends React.Component<IToggleGroupProps, IToggleGroupState> {
     renderOption(option: IToggleChoice, index: number): JSX.Element;
     static defaultProps: {
         colors: {
@@ -44,4 +47,3 @@ export declare class ToggleGroup extends React.Component<IToggleGroupProps, ISta
     };
     render(): JSX.Element;
 }
-export {};

@@ -71,4 +71,18 @@ export declare const Colors: {
         'rust-dark-5': string;
         'rust-text': string;
     };
+    Cloud: {
+        'cloud-light-5': string;
+        'cloud-light-4': string;
+        'cloud-light-3': string;
+        'cloud-light-2': string;
+        'cloud-light-1': string;
+        'cloud': string;
+        'cloud-dark-1': string;
+        'cloud-dark-2': string;
+        'cloud-dark-3': string;
+        'cloud-dark-4': string;
+        'cloud-dark-5': string;
+        'cloud-text': string;
+    };
 };

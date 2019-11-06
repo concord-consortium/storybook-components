@@ -58,4 +58,8 @@ export var inClueHeader = function () {
                 { text: 'd item' }
             ] }));
 };
+export var emptyList = function () {
+    return React.createElement(Header, null,
+        React.createElement(DropDown, { title: 'test', width: 200, items: [] }));
+};
 var templateObject_1;

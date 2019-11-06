@@ -1,12 +1,5 @@
 import React from 'react';
-export interface IMenuItemProps {
-    text: string;
-    selected?: boolean;
-    disabled?: boolean;
-    link?: string;
-    onClick?: (source: IMenuItemProps) => void;
-}
-interface IMenuState {
+export interface IMenuState {
     opened: boolean;
 }
 export interface IMenuProps {
@@ -15,6 +8,13 @@ export interface IMenuProps {
     prefix?: string;
     width?: number;
     items: IMenuItemProps[];
+}
+export interface IMenuItemProps {
+    text: string;
+    selected?: boolean;
+    disabled?: boolean;
+    link?: string;
+    onClick?: (source: IMenuItemProps) => void;
 }
 export declare class DropDown extends React.Component<IMenuProps, IMenuState> {
     private innerRef;
@@ -26,4 +26,3 @@ export declare class DropDown extends React.Component<IMenuProps, IMenuState> {
     componentWillUnmount(): void;
     render(): JSX.Element;
 }
-export {};

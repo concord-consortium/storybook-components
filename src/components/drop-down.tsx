@@ -2,6 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import { Colors } from '../themes/clue'
 
+export interface IMenuState {
+  opened: boolean;
+}
+
+export interface IMenuProps {
+  title: string
+  selected?: number
+  prefix?: string
+  width?: number
+  items: IMenuItemProps[]
+}
+
 export interface IMenuItemProps {
   text: string
   selected?: boolean
@@ -46,7 +58,6 @@ const MenuItemDiv = styled(Row)`
 `
 
 const SelectedIndicator = styled.div<any>`
-  /* content: ${p => p.selected ? '●' : ''}; */
   width: 24px;
   height: 24px;
   font-size: 22px;
@@ -82,13 +93,14 @@ const DropDownContainer = styled(Column)`
   max-height: 40px;
   overflow: visible;
 `
-const DropDownBack = styled(Column)<{open:boolean}>`
+
+const DropDownBack = styled(Column)<IDiscosureProps>`
   border-radius: 5px;
-  height: ${p => p.open ? 'auto' : '40px'};
+  height: ${(p:IDiscosureProps) => p.open ? 'auto' : '40px'};
   max-width: 250px;
   box-shadow: ${p => p.open ? '2px 2px 5px hsla(0, 10%, 10%, 0.3)' : 'none'};
   width: auto;
-  background-color: ${p => p.open
+  background-color: ${(p:IDiscosureProps) => p.open
     ? Colors.Sage['sage-light-2']
     : Colors.Sage['sage-light-1']
   };
@@ -97,7 +109,7 @@ const DropDownBack = styled(Column)<{open:boolean}>`
   font-size: 13px;
   padding: 4px;
   &:hover {
-    background-color: ${p => p.open
+    background-color: ${(p:IDiscosureProps) => p.open
       ? Colors.Sage['sage-light-2']
       : Colors.Sage['sage-dark-2']
     };
@@ -113,7 +125,7 @@ const DisclosureWidget = styled.div<IDiscosureProps>`
   align-self: center;
   text-align: center;
   color: ${ Colors.Sage["sage-dark-3"] };
-  transform: ${ props => props.open ? 'rotate(180deg)' : 'rotate(0deg)'};
+  transform: ${ (props:IDiscosureProps) => props.open ? 'rotate(180deg)' : 'rotate(0deg)'};
   transition-duration: 0.3s;
 `
 
@@ -121,21 +133,15 @@ const ItemsContainer = styled.div<IDiscosureProps>`
   transition: all 0.3s;
   height: auto;
   width: 100%;
-  max-height: ${props => (props.open ? "400px" : "0px")};
-  overflow: ${props => (props.open ? "auto" : "hidden")};
+  max-height: ${(props:IDiscosureProps) => (props.open ? "400px" : "0px")};
+  overflow: ${(props:IDiscosureProps) => (props.open ? "auto" : "hidden")};
+  -ms-overflow-style: none;
+    scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
-interface IMenuState {
-  opened: boolean;
-}
-
-export interface IMenuProps {
-  title: string
-  selected?: number
-  prefix?: string
-  width?: number
-  items: IMenuItemProps[]
-}
 
 export class DropDown extends React.Component<IMenuProps, IMenuState> {
   private innerRef: React.RefObject<HTMLDivElement>;
@@ -192,7 +198,7 @@ export class DropDown extends React.Component<IMenuProps, IMenuState> {
             </DisclosureWidgetContainer>
           </DropDownButton>
           <ItemsContainer open={opened}>
-            { items.map( (i,idx) =>
+            { items.map( (i, idx) =>
               <MenuItem {...i} key={idx}/>)
             }
           </ItemsContainer>

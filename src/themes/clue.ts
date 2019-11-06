@@ -75,4 +75,19 @@ const Rust = {
   'rust-text': '#640206'
 }
 
-export const Colors = {Sage, Sky, Peacock, Golden, Terra, Rust}
+const Cloud = {
+  'cloud-light-5': '#f8f8f8',
+  'cloud-light-4': '#efefef',
+  'cloud-light-3': '#e9e9e9',
+  'cloud-light-2': '#dfdfdf',
+  'cloud-light-1': '#cfcfcf',
+  'cloud': '#bfbfbf',
+  'cloud-dark-1': '#a7a7a7',
+  'cloud-dark-2': '#8f8f8f',
+  'cloud-dark-3': '#747474',
+  'cloud-dark-4': '#5e5e5e',
+  'cloud-dark-5': '#464646',
+  'cloud-text': '#464646'
+}
+
+export const Colors = {Sage, Sky, Peacock, Golden, Terra, Rust, Cloud}
