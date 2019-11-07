@@ -1,7 +1,7 @@
-import React from 'react'
-import { ToggleGroup } from '../components/toggle-group'
-import styled from 'styled-components'
-import { Themes } from '../themes'
+import React from "react";
+import { ToggleGroup } from "../components/toggle-group";
+import styled from "styled-components";
+import { Themes } from "../themes";
 
 const Colors = Themes.Clue;
 
@@ -12,64 +12,64 @@ const Header = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${Colors.Sage.sage};
-`
+`;
 
 export default {
-  title: 'Toggle Group',
+  title: "Toggle Group",
   parameters: {
     component: ToggleGroup,
-    componentSubtitle: 'Clue Toggle Group (select 1 of n)',
+    componentSubtitle: "Clue Toggle Group (select 1 of n)",
   }
-}
+};
 
 export const basicVertical = () =>
   <Header>
     <ToggleGroup
-      orientation='vertical'
+      orientation="vertical"
       options={[
-        {label: '1. one', selected: false},
-        {label: '2. two', selected: false},
-        {label: '3. three', selected: true},
+        {label: "1. one", selected: false},
+        {label: "2. two", selected: false},
+        {label: "3. three", selected: true},
       ]}
     />
-  </Header>
+  </Header>;
 
 export const basicHorizontal = () =>
   <Header>
     <ToggleGroup
-      orientation='horizontal'
+      orientation="horizontal"
       options={[
-        {label: '1. one', selected: false},
-        {label: '2. two', selected: true},
-        {label: '3. three', selected: false}
+        {label: "1. one", selected: false},
+        {label: "2. two", selected: true},
+        {label: "3. three", selected: false}
       ]}
     />
-  </Header>
+  </Header>;
 
 export const cosutomColors = () => {
   const oddColors = {
-    selectedColor: {color: 'black', background: "white"},
-    unselectedColor: {color: "white", background: 'orange'},
+    selectedColor: {color: "black", background: "white"},
+    unselectedColor: {color: "white", background: "orange"},
     hoverColor: {color: "black", background: "yellow"}
   };
 
   const colors = {
-    selectedColor: {color: 'white', background: "red"},
-    unselectedColor: {color: "white", background: 'gray'},
+    selectedColor: {color: "white", background: "red"},
+    unselectedColor: {color: "white", background: "gray"},
     hoverColor: {color: "white", background: "blue"}
   };
 
   return(
     <Header>
       <ToggleGroup
-        orientation='vertical'
+        orientation="vertical"
         colors={colors}
         options={[
-          {label: '1. one', selected: false},
-          {label: '2. two', selected: false, colors: oddColors},
-          {label: '3. three', selected: true}
+          {label: "1. one", selected: false},
+          {label: "2. two", selected: false, colors: oddColors},
+          {label: "3. three", selected: true}
         ]}
       />
     </Header>
   );
-}
+};

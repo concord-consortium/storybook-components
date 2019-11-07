@@ -1,10 +1,10 @@
 import * as React from "react";
-import styled from 'styled-components'
-import { Themes } from "../themes"
+import styled from "styled-components";
+import { Themes } from "../themes";
 
 const Colors = Themes.Clue;
 
-export type orientation = "horizontal" | "vertical";
+export type TOrientation = "horizontal" | "vertical";
 
 export interface TabColor {
   color: string;
@@ -18,12 +18,12 @@ export interface IToggleColors {
 }
 
 export interface IOriented {
-  orientation: orientation;
+  orientation: TOrientation;
 }
 
 const ToggleGroupDiv = styled.div<IOriented>`
   display: flex;
-  flex-direction: ${(p:IOriented) => p.orientation ===  "horizontal"
+  flex-direction: ${(p: IOriented) => p.orientation ===  "horizontal"
     ? "row"
     : "column"
   };
@@ -34,7 +34,7 @@ const ToggleGroupDiv = styled.div<IOriented>`
   margin: 0px;
   text-align: center;
   font-size: 10pt;
-`
+`;
 const ToggleButton = styled.div<IToggleColors & IOriented>`
   padding: 0.5em;
   border-radius: 0px;
@@ -44,14 +44,14 @@ const ToggleButton = styled.div<IToggleColors & IOriented>`
 
   &:last-child {
     border-radius: ${p => p.orientation === "vertical"
-      ? '0px 0px 0.5em 0.5em'
-      : '0px 0.5em 0.5em 0px' };
+      ? "0px 0px 0.5em 0.5em"
+      : "0px 0.5em 0.5em 0px" };
   }
 
   &:first-child {
     border-radius: ${p => p.orientation === "vertical"
-      ? '0.5em 0.5em 0px 0px'
-      : '0.5em 0px 0px 0.5em' };
+      ? "0.5em 0.5em 0px 0px"
+      : "0.5em 0px 0px 0.5em" };
   }
 
   &.selected {
@@ -65,16 +65,15 @@ const ToggleButton = styled.div<IToggleColors & IOriented>`
   }
 `;
 
-
 export interface IToggleChoice {
-  label: string
-  onClick?: () => void
-  selected: boolean
-  colors?: IToggleColors
+  label: string;
+  onClick?: () => void;
+  selected: boolean;
+  colors?: IToggleColors;
 }
 
 export interface IToggleGroupProps {
-  orientation: orientation;
+  orientation: TOrientation;
   colors: IToggleColors;
   options: IToggleChoice[];
 }
@@ -82,8 +81,28 @@ export interface IToggleGroupProps {
 export interface IToggleGroupState {}
 
 export class ToggleGroup extends React.Component<IToggleGroupProps, IToggleGroupState> {
+
+  public static defaultProps = {
+    colors: {
+      selectedColor:  {
+        color: "white",
+        background: Colors.Sage["sage-dark-5"]
+      },
+      hoverColor: {
+        color: "white",
+        background: Colors.Sage["sage-dark-3"]
+      },
+      unselectedColor:  {
+        color: Colors.Sage["sage-dark-5"],
+        background: Colors.Sage["sage-light-2"],
+      }
+    },
+    orientation: "horizontal",
+    options: []
+  };
+
   public renderOption(option: IToggleChoice, index: number) {
-    const {orientation} = this.props
+    const {orientation} = this.props;
     const colors = option.colors ? option.colors : this.props.colors;
     const className = option.selected
       ? "toggle-button selected"
@@ -98,25 +117,6 @@ export class ToggleGroup extends React.Component<IToggleGroupProps, IToggleGroup
           {option.label}
       </ToggleButton>
     );
-  }
-
-  static defaultProps = {
-    colors: {
-      selectedColor:  {
-        color: "white",
-        background: Colors.Sage['sage-dark-5']
-      },
-      hoverColor: {
-        color: "white",
-        background: Colors.Sage['sage-dark-3']
-      },
-      unselectedColor:  {
-        color: Colors.Sage['sage-dark-5'],
-        background: Colors.Sage['sage-light-2'],
-      }
-    },
-    orientation: 'horizontal',
-    options: []
   }
 
   public render() {
