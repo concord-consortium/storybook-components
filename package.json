@@ -2,19 +2,22 @@
   "name": "concord-react-components",
   "version": "0.1.3",
   "private": false,
-  "dependencies": {
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "styled-components": "^4.4.0"
-  },
+  "description": "An assorted collection of components",
+  "main": "./dist/index.js",
+  "repository": "git@github.com:concord-consortium/concord-react-components.git",
+  "author": "Noah Paessel <knowuh@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build-lib": "tsc",
+    "start": "start-storybook -p 9009 -s public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "lint:build": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "lint:fix": "tslint -c tslint.json --fix 'src/**/*.{ts,tsx}'",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "build": "tsc",
+    "build-lib": "tsc"
   },
   "babel": {
     "presets": [
@@ -36,7 +39,14 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "styled-components": "^4.4.0"
+  },
   "devDependencies": {
+    "tslint": "^5.20.0",
+    "tslint-react": "^4.0.0",
     "@babel/cli": "^7.6.4",
     "@babel/preset-typescript": "^7.6.0",
     "@storybook/addon-actions": "^5.2.5",
@@ -52,10 +62,5 @@
     "@types/styled-components": "^4.1.19",
     "react-scripts": "3.2.0",
     "typescript": "3.6.4"
-  },
-  "description": "An assorted collection of components",
-  "main": "./dist/index.js",
-  "repository": "git@github.com:concord-consortium/storybook-components.git",
-  "author": "Noah Paessel <knowuh@gmail.com>",
-  "license": "MIT"
+  }
 }
