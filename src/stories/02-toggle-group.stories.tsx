@@ -1,7 +1,9 @@
 import React from 'react'
 import { ToggleGroup } from '../components/toggle-group'
 import styled from 'styled-components'
-import { Colors } from '../themes/clue'
+import { Themes } from '../themes'
+
+const Colors = Themes.Clue;
 
 const Header = styled.div`
   min-height: 60px;

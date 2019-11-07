@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled from 'styled-components'
-import { Colors } from '../themes/clue'
+import { Themes } from "../themes"
+
+const Colors = Themes.Clue;
 
 export type orientation = "horizontal" | "vertical";
 

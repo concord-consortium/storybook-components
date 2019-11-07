@@ -90,4 +90,4 @@ const Cloud = {
   'cloud-text': '#464646'
 }
 
-export const Clue = { Sage, Sky, Peacock, Golden, Terra, Rust, Cloud }
+export const Dataflow = { Sage, Sky, Peacock, Golden, Terra, Rust, Cloud }

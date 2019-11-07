@@ -1,7 +1,9 @@
 import React from 'react'
 import { DropDown } from '../components/drop-down'
 import styled from 'styled-components'
-import { Colors } from '../themes/clue'
+import { Themes } from '../themes'
+
+const Colors = Themes.Clue;
 
 export default {
   title: 'Clue Dropdown Menu',
