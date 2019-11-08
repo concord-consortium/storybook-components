@@ -13,15 +13,15 @@ export interface IMenuProps {
   selected?: number;
   prefix?: string;
   width?: number;
-  items: IMenuItemProps[];
+  items: IDropdownItem[];
 }
 
-export interface IMenuItemProps {
+export interface IDropdownItem {
   text: string;
   selected?: boolean;
   disabled?: boolean;
   link?: string;
-  onClick?: (source: IMenuItemProps) => void;
+  onClick?: (source: IDropdownItem) => void;
 }
 
 interface IDiscosureProps {
@@ -76,7 +76,7 @@ const MenuItemText = styled.div`
   flex: 2;
   text-align: left;
 `;
-const MenuItem: React.FC<IMenuItemProps> = (props: IMenuItemProps) => {
+const MenuItem: React.FC<IDropdownItem> = (props: IDropdownItem) => {
   const {text, selected, onClick} = props;
   const handleClick = () => {
     if (onClick) {

@@ -1,11 +1,11 @@
 
-import { DropDown, IMenuItemProps} from "./components/drop-down";
+import { DropDown, IDropdownItem} from "./components/drop-down";
 import { ToggleGroup, IToggleGroupProps, IToggleChoice } from "./components/toggle-group";
 import { Themes } from "./themes";
 
 export {
   DropDown,
-  IMenuItemProps,
+  IDropdownItem,
   ToggleGroup,
   IToggleGroupProps,
   IToggleChoice,
