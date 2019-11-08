@@ -84,7 +84,7 @@ const MenuItem: React.FC<IDropdownItem> = (props: IDropdownItem) => {
     }
   };
   return (
-    <MenuItemDiv key={text} onClick={handleClick}>
+    <MenuItemDiv className="Menuitem" key={text} onClick={handleClick}>
       <SelectedIndicator selected={selected}>●</SelectedIndicator>
       <MenuItemText>{text}</MenuItemText>
     </MenuItemDiv>
@@ -96,7 +96,7 @@ const DropDownContainer = styled(Column)`
   overflow: visible;
 `;
 
-const DropDownBack = styled(Column)<IDiscosureProps>`
+const DropDownBack = styled.div<IDiscosureProps>`
   border-radius: 5px;
   height: ${(p: IDiscosureProps) => p.open ? "auto" : "40px"};
   max-width: 250px;
