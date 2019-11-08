@@ -1,4 +1,4 @@
-## Concord React Components
+## Concord React Components / @concord-consortium/react-components
 
 Intended to be used as a common repository for reusable UI widgets.
 
