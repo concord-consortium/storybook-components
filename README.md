@@ -11,7 +11,7 @@ It was bootstrapped with [Create React App](https://github.com/facebook/create-r
 `npx create-react-app concord-react-components --typescript`
 
 ## Preview the components on the storybook server:
-This project is audomatically deployed to `https://storybook.concord.org/` via github
+This project is audomatically deployed to [https://storybook.concord.org/](https://storybook.concord.org/) via github
 [Netlify integration](https://app.netlify.com/)
 
 ## Getting Started
@@ -25,7 +25,18 @@ This project is audomatically deployed to `https://storybook.concord.org/` via g
 * You can link `concord-react-components` to your working checkout by using
 `npm link` from the projects top directory.
 * Link the components into your target app by running
-`npm link concord-react-components` from the target apps top directory.
+`npm link concord-react-components` from the target apps top directory. Remember
+to remove the link, and link to actual NPM package later. The best practice when doing
+this sort of work is probably to remove node_modules and do a clean install of
+`concord-react-components` from npm.
+
+## Publishing changes
+* 'yarn build' to build `./dist`
+* Adjust the version number in `package.json` adhering to semver. If the
+release number is less than 1.0 then no promises are made. Otherwise if a components
+property changes in an incompatible way, bump the major version number. New components
+can simply bump the minor version number.
+* `yarn publish` to push changes up to npm
 
 ## Documentation Links
 * [Styled Components](https://www.styled-components.com/)
