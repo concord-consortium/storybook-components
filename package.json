@@ -1,12 +1,15 @@
 {
   "name": "concord-react-components",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "private": false,
   "description": "An assorted collection of components",
   "main": "./dist/index.js",
   "repository": "git@github.com:concord-consortium/concord-react-components.git",
   "author": "Noah Paessel <knowuh@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "start": "start-storybook -p 9009 -s public",
     "test": "react-scripts test",
@@ -16,8 +19,11 @@
     "lint:fix": "tslint -c tslint.json --fix 'src/**/*.{ts,tsx}'",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "build": "tsc",
-    "build-lib": "tsc"
+    "clean": "rimraf dist",
+    "build-lib": "tsc",
+    "build": "npm-run-all clean build-lib",
+    "prepublishOnly": "npm-run-all build",
+    "mytest": "npm-run-all build"
   },
   "babel": {
     "presets": [
@@ -25,27 +31,31 @@
     ]
   },
   "dependencies": {
+    "npm": "^6.13.0",
     "react": "^16.11.0",
+    "react-button-group": "^1.0.2",
     "react-dom": "^16.11.0",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
-    "tslint": "^5.20.0",
-    "tslint-react": "^4.0.0",
     "@babel/cli": "^7.6.4",
     "@babel/preset-typescript": "^7.6.0",
     "@storybook/addon-actions": "^5.2.5",
+    "@storybook/addon-docs": "^5.2.5",
+    "@storybook/addon-knobs": "^5.2.5",
     "@storybook/addon-links": "^5.2.5",
     "@storybook/addons": "^5.2.5",
     "@storybook/react": "^5.2.5",
-    "@storybook/addon-docs": "^5.2.5",
-    "@storybook/addon-knobs": "^5.2.5",
     "@types/jest": "24.0.19",
     "@types/node": "12.11.5",
     "@types/react": "16.9.9",
     "@types/react-dom": "16.9.2",
     "@types/styled-components": "^4.1.19",
+    "npm-run-all": "^4.1.5",
     "react-scripts": "3.2.0",
+    "rimraf": "^3.0.0",
+    "tslint": "^5.20.0",
+    "tslint-react": "^4.0.0",
     "typescript": "3.6.4"
   }
 }
