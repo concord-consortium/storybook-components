@@ -38,6 +38,13 @@ property changes in an incompatible way, bump the major version number. New comp
 can simply bump the minor version number.
 * `yarn publish` to push changes up to npm
 
+
+### Converting SVGs to svgr-icons using svgr
+
+You can convert SVG files into react functional components by using the
+svgr command line tool. eg:
+`npx @svgr/cli --icon --out-dir ./src/svgr-icons ~/src/svgr-icons/*.svg`
+
 ## Documentation Links
 * [Styled Components](https://www.styled-components.com/)
 * [npm-link](https://docs.npmjs.com/cli/link.html)
