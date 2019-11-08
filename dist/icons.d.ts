@@ -1,0 +1,37 @@
+/// <reference types="react" />
+export declare const Icons: {
+    OneUp: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    TwoUp: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    FourUp: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    Caret: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    Copy: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    CopyOnly: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    DeleteWorkspace: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    DragTile: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    DrawTile: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    DropdownCaret: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    Edit: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    EditWorkspaceName: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    GoToWorkspace: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    GraphTile: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    ImageTile: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    LearningLogDropdown: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    LinkedTile: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    New: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    NotShare: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    PageLeftRight: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    PageUpDown: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    Publish: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    Published: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    PublishedHover: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    PublishHover: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    Refresh: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    SelectionTile: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    Share: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    StarWorkspace: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    StickyNote: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    Support: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    TableTile: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    TeacherStudent: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+    TextTile: (props: import("react").SVGProps<SVGSVGElement>) => JSX.Element;
+};
