@@ -43,7 +43,8 @@ can simply bump the minor version number.
 
 You can convert SVG files into react functional components by using the
 svgr command line tool. eg:
-`npx @svgr/cli --icon --out-dir ./src/svgr-icons ~/src/svgr-icons/*.svg`
+`cd source-icons`
+`npx @svgr/cli --icon --out-dir ../src/components/svgr-icons --template ../svgr.config.js --ext tsx  *.svg`
 
 ## Documentation Links
 * [Styled Components](https://www.styled-components.com/)

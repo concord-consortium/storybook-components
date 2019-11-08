@@ -24,7 +24,7 @@ export default {
   title: "Icon Buttons",
   parameters: {
     component: IconButton,
-    componentSubtitle: "Simple svg Publish component",
+    componentSubtitle: "SVG Icon Button",
   }
 };
 
