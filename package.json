@@ -1,6 +1,6 @@
 {
   "name": "concord-react-components",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "description": "An assorted collection of components",
   "main": "./dist/index.js",
