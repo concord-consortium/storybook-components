@@ -46,7 +46,7 @@ export const basicHorizontal = () =>
     />
   </Header>;
 
-export const cosutomColors = () => {
+export const customColors = () => {
   const oddColors = {
     selectedColor: {color: "black", background: "white"},
     unselectedColor: {color: "white", background: "orange"},
