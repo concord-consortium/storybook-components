@@ -1,15 +1,6 @@
 import * as React from "react";
-import SvgPageupDown from "./svgr-icons/PageUpDown";
-
-interface IState {
-  selectedDatum: Datum | null;
-}
-
-interface point {
-  x: number;
-  y: number;
-}
-
+import styled from "styled-components";
+import { Histogram } from "./histogram";
 interface Datum {
   time: any;
   speed: number;
@@ -20,6 +11,9 @@ interface IProps {
   data: Datum[];
 }
 
+interface IState {
+  selectedDatum: Datum | null;
+}
 
 const polarToCart = (r: number, angle: number) => {
   const x = r * Math.cos(angle);
@@ -46,9 +40,10 @@ export class CircularHisto extends React.Component<IProps, IState> {
   public static getDerivedStateFromProps(props: IProps, state: IState) {
     const { data } = props;
     state.selectedDatum = data[data.length - 1];
-  };
+  }
 
   public state = {selectedDatum: null};
+
   public render() {
     const ViewBox = {
       left: -50,
@@ -101,7 +96,6 @@ export class CircularHisto extends React.Component<IProps, IState> {
           <circle cx={0} cy={0} r={25} fill="none" stroke="black" strokeWidth={0.01} />
           { data.map(toPoint) }
           {selectedDatum && toPoint(selectedDatum!, data.length + 1, true) }
-
           }
         </svg>
         {selectedDatum &&
@@ -138,6 +132,13 @@ interface IDataContextState {
   rangeEnd: number;
 }
 
+const HowizontalLayout = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
 export class HistDataContext extends React.Component<IDataContextProps, IDataContextState>{
   public lastTime = 0;
   public constructor(props: IDataContextProps) {
@@ -153,7 +154,12 @@ export class HistDataContext extends React.Component<IDataContextProps, IDataCon
 
   public render() {
     const {workingSet} = this.state;
-    return <CircularHisto data={workingSet} />;
+    return (
+      <HowizontalLayout>
+        <CircularHisto data={workingSet} />
+        <Histogram data={workingSet} />
+      </HowizontalLayout>
+    );
   }
 
   public componentDidMount() {
@@ -185,8 +191,8 @@ export class HistDataContext extends React.Component<IDataContextProps, IDataCon
     if (timestamp > this.lastTime + 100) {
       this.lastTime = timestamp;
       if (this.state.workingSet.length < this.props.data.length) {
-        this.addNextData();
-        // this.addSampleData();
+        // this.addNextData();
+        this.addSampleData();
       }
     }
     requestAnimationFrame(this.doTick);
