@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import styled from "styled-components";
 import { Histogram } from "./histogram";
@@ -132,7 +133,7 @@ interface IDataContextState {
   rangeEnd: number;
 }
 
-const HowizontalLayout = styled.div`
+const HorizontalLayout = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -155,10 +156,10 @@ export class HistDataContext extends React.Component<IDataContextProps, IDataCon
   public render() {
     const {workingSet} = this.state;
     return (
-      <HowizontalLayout>
+      <HorizontalLayout>
         <CircularHisto data={workingSet} />
         <Histogram data={workingSet} />
-      </HowizontalLayout>
+      </HorizontalLayout>
     );
   }
 
@@ -188,7 +189,7 @@ export class HistDataContext extends React.Component<IDataContextProps, IDataCon
   }
 
   private doTick = (timestamp: number) => {
-    if (timestamp > this.lastTime + 100) {
+    if (timestamp > this.lastTime + 600) {
       this.lastTime = timestamp;
       if (this.state.workingSet.length < this.props.data.length) {
         // this.addNextData();
