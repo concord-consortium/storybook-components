@@ -3,6 +3,9 @@ import styled, { css } from "styled-components";
 import SvgPlay from "./svgr-icons/Play";
 import SvgPause from "./svgr-icons/Pause";
 import SvgRewind from "./svgr-icons/Rewind";
+import { Themes } from "../themes";
+
+const Colors = Themes.Simulation;
 
 export type TVCRButton = "play-pause" | "rewind";
 
@@ -27,7 +30,7 @@ const ButtonContainer = styled.div`
   pointer-events: ${(p: {disabled?: boolean}) => p.disabled ? "none" : "auto"};
   transition: background-color .25s;
   &:hover {
-    background-color: #dfdfdf;
+    background-color: ${Colors.Gray["control-gray-light-1"]};
   }
   &:active .vcr-button-highlight {
     background-color: white;
@@ -55,7 +58,7 @@ const Label = styled.div`
   font-size: 16px;
   font-weight: 500px;
   margin-top: 5px;
-  color: #333333;
+  color: ${Colors.Gray["control-text"]};
   opacity: ${(p: {disabled?: boolean}) => p.disabled ? ".35" : "1"};
 `;
 

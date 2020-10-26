@@ -1,6 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import SvgSave from "./svgr-icons/Save";
+import { Themes } from "../themes";
+
+const Colors = Themes.Simulation;
 
 export interface SaveButtonProps {
   onClick?: (args?: any) => any;
@@ -14,12 +17,12 @@ const ButtonContainer = styled.button`
   width: 86px;
   height: 32px;
   border-radius: 5px;
-  border: solid 1px #333333;
+  border: solid 1px ${Colors.Gray["control-text"]};
   background-color: white;
   cursor: pointer;
   transition: background-color .25s;
   &:hover {
-    background-color: #dfdfdf;
+    background-color: ${Colors.Gray["control-gray-light-1"]};
   }
   &:active .save-button-highlight {
     background-color: white;

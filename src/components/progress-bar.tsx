@@ -1,5 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
+import { Themes } from "../themes";
+
+const Colors = Themes.Simulation;
 
 const kMaxTimerWidth = 110;
 
@@ -12,7 +15,7 @@ export interface ProgressBarProps {
 const Container = styled.div`
   width: 130px;
   height: 37px;
-  color: #333333;
+  color: ${Colors.Gray["control-text"]};
   border-radius: 0 0 10px 10px;
   background-color: rgba(255, 255, 255, .3);
   display: flex;
@@ -35,14 +38,14 @@ const ProgressBack = styled.div`
   left: 10px;
   height: 5px;
   width: 110px;
-  background-color: #cecece;
+  background-color: ${Colors.Gray["control-gray-light-3"]};
 `;
 
 const ProgressFront = styled.div`
   position: absolute;
   left: 10px;
   height: 5px;
-  background-color: #14b70e;
+  background-color: ${Colors.Green["progress-green"]};
 `;
 
 export class ProgressBar extends React.Component<ProgressBarProps> {
