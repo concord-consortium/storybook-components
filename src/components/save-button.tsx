@@ -15,8 +15,25 @@ const ButtonContainer = styled.button`
   height: 32px;
   border-radius: 5px;
   border: solid 1px #333333;
-  background-color: #ffffff;
+  background-color: white;
   cursor: pointer;
+  transition: background-color .25s;
+  &:hover {
+    background-color: #dfdfdf;
+  }
+  &:active .save-button-highlight {
+    background-color: white;
+  }
+`;
+
+const ButtonHighlight = styled.div`
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .5);
 `;
 
 const StyledSaveButton = styled(SvgSave)`
@@ -35,7 +52,9 @@ export class SaveButton extends React.Component<SaveButtonProps> {
     const { onClick } = this.props;
     return(
       <ButtonContainer onClick={onClick}>
-        <StyledSaveButton />
+        <ButtonHighlight className="save-button-highlight">
+          <StyledSaveButton />
+        </ButtonHighlight>
         <Label>Save</Label>
       </ButtonContainer>
     );

@@ -42,3 +42,15 @@ export const VCRClickablePlayButton = () =>
     label="Start"
   />;
 
+  export const MultipleButtons = () =>
+    <div>
+      <VCRButton
+        type={"rewind"}
+        label="Rewind"
+      />
+      <VCRButton
+        type={"play-pause"}
+        label="Start"
+      />
+    </div>;
+
