@@ -1,8 +1,6 @@
 import React from "react";
 
 import Publish from "../components/svgr-icons/Publish";
-import Published from "../components/svgr-icons/Published";
-import PublishedHover from "../components/svgr-icons/PublishedHover";
 import PublishHover from "../components/svgr-icons/PublishHover";
 import {IconButton} from "../components/icon-button";
 import styled from "styled-components";
