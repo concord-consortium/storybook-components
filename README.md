@@ -31,7 +31,7 @@ this sort of work is probably to remove node_modules and do a clean install of
 `concord-react-components` from npm.
 
 ## Publishing changes
-* 'yarn build' to build `./dist`
+* `yarn build` to build `./dist`
 * Adjust the version number in `package.json` adhering to semver. If the
 release number is less than 1.0 then no promises are made. Otherwise if a components
 property changes in an incompatible way, bump the major version number. New components
