@@ -1,6 +1,6 @@
 {
   "name": "@concord-consortium/react-components",
-  "version": "0.1.14",
+  "version": "0.2.0",
   "private": false,
   "description": "An assorted collection of components",
   "main": "./dist/index.js",
