@@ -9,7 +9,7 @@ const Colors = Themes.Simulation;
 
 export type TVCRButton = "play-pause" | "rewind";
 
-export interface VCRButtonProps {
+export interface IVCRButtonProps {
   type: TVCRButton;
   onClick?: (args?: any) => any;
   title?: string;
@@ -30,6 +30,7 @@ const ButtonContainer = styled.button`
   border-radius: 9px 9px 0 0;
   cursor: ${(p: {disabled?: boolean}) => p.disabled ? "normal" : "pointer"};
   pointer-events: ${(p: {disabled?: boolean}) => p.disabled ? "none" : "auto"};
+  background-color: white;
   transition: background-color .25s;
   &:hover {
     background-color: ${Colors.Gray["control-gray-light-1"]};
@@ -82,7 +83,7 @@ const StyledRewindButton = styled(SvgRewind)`
   ${sharedButtonStyle}
 `;
 
-export const VCRButton: React.FC<VCRButtonProps> = (props) => {
+export const VCRButton: React.FC<IVCRButtonProps> = (props) => {
   const { label, type, onClick, running, disabled } = props;
   return(
     <ButtonContainer onClick={onClick} disabled={disabled}>

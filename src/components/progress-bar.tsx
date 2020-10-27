@@ -6,7 +6,7 @@ const Colors = Themes.Simulation;
 
 const kMaxTimerWidth = 110;
 
-export interface ProgressBarProps {
+export interface IProgressBarProps {
   currentTimeLabel: string;
   currentTime: number;
   maxTime: number;
@@ -48,7 +48,7 @@ const ProgressFront = styled.div`
   background-color: ${Colors.Green["progress-green"]};
 `;
 
-export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
+export const ProgressBar: React.FC<IProgressBarProps> = (props) => {
   const { currentTimeLabel, currentTime, maxTime} = props;
   const timerWidth = kMaxTimerWidth * (currentTime / maxTime);
   return(

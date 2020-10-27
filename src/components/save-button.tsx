@@ -5,7 +5,7 @@ import { Themes } from "../themes";
 
 const Colors = Themes.Simulation;
 
-export interface SaveButtonProps {
+export interface ISaveButtonProps {
   onClick?: (args?: any) => any;
 }
 
@@ -50,7 +50,7 @@ const Label = styled.div`
   font-weight: 500;
 `;
 
-export const SaveButton: React.FC<SaveButtonProps> = (props) => {
+export const SaveButton: React.FC<ISaveButtonProps> = (props) => {
   const { onClick } = props;
   return (
     <ButtonContainer onClick={onClick}>
