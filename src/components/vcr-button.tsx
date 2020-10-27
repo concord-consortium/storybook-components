@@ -18,11 +18,13 @@ export interface VCRButtonProps {
   label?: string;
 }
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  outline: none;
+  border: none;
   width: 60px;
   height: 74px;
   border-radius: 9px 9px 0 0;
