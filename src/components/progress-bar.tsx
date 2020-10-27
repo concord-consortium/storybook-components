@@ -48,18 +48,16 @@ const ProgressFront = styled.div`
   background-color: ${Colors.Green["progress-green"]};
 `;
 
-export class ProgressBar extends React.Component<ProgressBarProps> {
-  public render() {
-    const { currentTimeLabel, currentTime, maxTime} = this.props;
-    const timerWidth = kMaxTimerWidth * (currentTime / maxTime);
-    return(
-      <Container>
-        <div>Time: {currentTimeLabel}</div>
-        <Progress>
-          <ProgressBack />
-          <ProgressFront style={{width: timerWidth}}/>
-        </Progress>
-      </Container>
-    );
-  }
-}
+export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
+  const { currentTimeLabel, currentTime, maxTime} = props;
+  const timerWidth = kMaxTimerWidth * (currentTime / maxTime);
+  return(
+    <Container>
+      <div>Time: {currentTimeLabel}</div>
+      <Progress>
+        <ProgressBack />
+        <ProgressFront style={{width: timerWidth}}/>
+      </Progress>
+    </Container>
+  );
+};

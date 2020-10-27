@@ -50,17 +50,14 @@ const Label = styled.div`
   font-weight: 500;
 `;
 
-export class SaveButton extends React.Component<SaveButtonProps> {
-  public render() {
-    const { onClick } = this.props;
-    return(
-      <ButtonContainer onClick={onClick}>
-        <ButtonHighlight className="save-button-highlight">
-          <StyledSaveButton />
-        </ButtonHighlight>
-        <Label>Save</Label>
-      </ButtonContainer>
-    );
-  }
-
-}
+export const SaveButton: React.FC<SaveButtonProps> = (props) => {
+  const { onClick } = props;
+  return (
+    <ButtonContainer onClick={onClick}>
+      <ButtonHighlight className="save-button-highlight">
+        <StyledSaveButton />
+      </ButtonHighlight>
+      <Label>Save</Label>
+    </ButtonContainer>
+  );
+};

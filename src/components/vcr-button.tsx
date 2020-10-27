@@ -80,24 +80,21 @@ const StyledRewindButton = styled(SvgRewind)`
   ${sharedButtonStyle}
 `;
 
-export class VCRButton extends React.Component<VCRButtonProps> {
-  public render() {
-    const { label, type, onClick, running, disabled } = this.props;
-    return(
-      <ButtonContainer onClick={onClick} disabled={disabled}>
-        <ButtonHighlight className="vcr-button-highlight">
-          <ButtonBack>
-            { type === "play-pause"
-              ? running
-                ? <StyledPauseButton disabled={disabled} />
-                : <StyledPlayButton disabled={disabled} />
-              : <StyledRewindButton disabled={disabled} />
-            }
-          </ButtonBack>
-        </ButtonHighlight>
-        {label && <Label disabled={disabled}>{label}</Label>}
-      </ButtonContainer>
-    );
-  }
-
-}
+export const VCRButton: React.FC<VCRButtonProps> = (props) => {
+  const { label, type, onClick, running, disabled } = props;
+  return(
+    <ButtonContainer onClick={onClick} disabled={disabled}>
+      <ButtonHighlight className="vcr-button-highlight">
+        <ButtonBack>
+          { type === "play-pause"
+            ? running
+              ? <StyledPauseButton disabled={disabled} />
+              : <StyledPlayButton disabled={disabled} />
+            : <StyledRewindButton disabled={disabled} />
+          }
+        </ButtonBack>
+      </ButtonHighlight>
+      {label && <Label disabled={disabled}>{label}</Label>}
+    </ButtonContainer>
+  );
+};
