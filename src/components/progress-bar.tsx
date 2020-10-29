@@ -53,7 +53,7 @@ export const ProgressBar: React.FC<IProgressBarProps> = (props) => {
   const timerWidth = kMaxTimerWidth * (currentTime / maxTime);
   return(
     <Container>
-      <div>Time: {currentTimeLabel}</div>
+      <div>{currentTimeLabel}</div>
       <Progress>
         <ProgressBack />
         <ProgressFront style={{width: timerWidth}}/>

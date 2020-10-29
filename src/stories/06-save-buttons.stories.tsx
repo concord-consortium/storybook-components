@@ -14,3 +14,9 @@ export const clickableSaveButton = () =>
     onClick={()=>{window.alert("Save")}}
   />;
 
+export const labeledSaveButton = () =>
+  <SaveButton
+    onClick={()=>{window.alert("Save")}}
+    label="Store"
+  />;
+

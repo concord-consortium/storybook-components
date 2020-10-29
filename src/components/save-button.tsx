@@ -7,6 +7,7 @@ const Colors = Themes.Simulation;
 
 export interface ISaveButtonProps {
   onClick?: (args?: any) => any;
+  label?: string;
 }
 
 const ButtonContainer = styled.button`
@@ -51,13 +52,13 @@ const Label = styled.div`
 `;
 
 export const SaveButton: React.FC<ISaveButtonProps> = (props) => {
-  const { onClick } = props;
+  const { onClick, label } = props;
   return (
     <ButtonContainer onClick={onClick}>
       <ButtonHighlight className="save-button-highlight">
         <StyledSaveButton />
       </ButtonHighlight>
-      <Label>Save</Label>
+      <Label>{label || "Save"}</Label>
     </ButtonContainer>
   );
 };
