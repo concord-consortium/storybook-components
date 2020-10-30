@@ -1,4 +1,5 @@
 
+2020-10-29 : v.0.3.0 -- allow text to be set via props in save button and progress bar
 2020-10-27 : v.0.2.0 -- add VCR button, save button, progress bar
 2019-11-08 : v.0.1.8 -- Fix safari dropdown bug
 2019-11-08 : v.0.1.7 -- Rename interface `IMenuItemProps` → `IDropdownItem`
