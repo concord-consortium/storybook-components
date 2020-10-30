@@ -25,7 +25,7 @@ const ButtonContainer = styled.button`
   justify-content: center;
   outline: none;
   border: none;
-  width: 60px;
+  min-width: 60px;
   height: 74px;
   border-radius: 9px 9px 0 0;
   cursor: ${(p: {disabled?: boolean}) => p.disabled ? "normal" : "pointer"};

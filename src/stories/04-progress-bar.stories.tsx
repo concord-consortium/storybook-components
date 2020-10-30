@@ -45,3 +45,12 @@ export const progressBarFull = () =>
       maxTime={10}
     />
   </Background>;
+
+export const progressBarLabeled = () =>
+  <Background>
+    <ProgressBar
+      currentTimeLabel="5 hours very long label"
+      currentTime={5}
+      maxTime={10}
+    />
+  </Background>;

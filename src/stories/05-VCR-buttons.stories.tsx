@@ -54,3 +54,9 @@ export const VCRClickablePlayButton = () =>
       />
     </div>;
 
+export const VCRLabeledRewindButton = () =>
+  <VCRButton
+    type={"rewind"}
+    disabled={true}
+    label="Rewind with long label"
+  />;

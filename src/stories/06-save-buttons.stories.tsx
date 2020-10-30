@@ -19,4 +19,8 @@ export const labeledSaveButton = () =>
     onClick={()=>{window.alert("Save")}}
     label="Store"
   />;
-
+export const longLabeledSaveButton = () =>
+  <SaveButton
+    onClick={()=>{window.alert("Save button long label")}}
+    label="Store"
+  />;

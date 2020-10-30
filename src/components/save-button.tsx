@@ -15,7 +15,7 @@ const ButtonContainer = styled.button`
   justify-content: center;
   align-items: center;
   outline: none;
-  width: 86px;
+  min-width: 86px;
   height: 32px;
   border-radius: 5px;
   border: solid 1px ${Colors.Gray["control-text"]};

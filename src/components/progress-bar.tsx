@@ -13,7 +13,7 @@ export interface IProgressBarProps {
 }
 
 const Container = styled.div`
-  width: 130px;
+  min-width: 130px;
   height: 37px;
   color: ${Colors.Gray["control-text"]};
   border-radius: 0 0 10px 10px;
@@ -29,13 +29,16 @@ const Container = styled.div`
 const Progress = styled.div`
   margin-top: 5px;
   position: relative;
-  width: 100%;
+  width: 110px;
   height: 5px;
+`;
+
+const Label = styled.label`
+  margin: 0 5px;
 `;
 
 const ProgressBack = styled.div`
   position: absolute;
-  left: 10px;
   height: 5px;
   width: 110px;
   background-color: ${Colors.Gray["control-gray-light-3"]};
@@ -43,7 +46,6 @@ const ProgressBack = styled.div`
 
 const ProgressFront = styled.div`
   position: absolute;
-  left: 10px;
   height: 5px;
   background-color: ${Colors.Green["progress-green"]};
 `;
@@ -53,7 +55,7 @@ export const ProgressBar: React.FC<IProgressBarProps> = (props) => {
   const timerWidth = kMaxTimerWidth * (currentTime / maxTime);
   return(
     <Container>
-      <div>{currentTimeLabel}</div>
+      <Label>{currentTimeLabel}</Label>
       <Progress>
         <ProgressBack />
         <ProgressFront style={{width: timerWidth}}/>
