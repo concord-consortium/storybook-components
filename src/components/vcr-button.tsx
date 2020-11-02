@@ -23,7 +23,6 @@ const ButtonContainer = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  outline: none;
   border: none;
   min-width: 60px;
   height: 74px;
