@@ -1,3 +1,4 @@
+2020-11-02 : v.0.3.2 -- Fix button outline when button has focus
 2020-10-30 : v.0.3.1 -- Fix widths of components when given long text strings
 2020-10-29 : v.0.3.0 -- allow text to be set via props in save button and progress bar
 2020-10-27 : v.0.2.0 -- add VCR button, save button, progress bar
