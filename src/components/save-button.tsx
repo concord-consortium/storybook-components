@@ -14,7 +14,6 @@ const ButtonContainer = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: none;
   min-width: 86px;
   height: 32px;
   border-radius: 5px;
