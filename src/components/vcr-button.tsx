@@ -58,7 +58,7 @@ const ButtonBack = styled.div`
 
 const Label = styled.div`
   font-size: 16px;
-  font-weight: 500px;
+  font-weight: 500;
   margin-top: 5px;
   color: ${Colors.Gray["control-text"]};
   opacity: ${(p: {disabled?: boolean}) => p.disabled ? ".35" : "1"};
