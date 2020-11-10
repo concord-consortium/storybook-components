@@ -17,7 +17,7 @@ const Container = styled.div`
   height: 37px;
   color: ${Colors.Gray["control-text"]};
   border-radius: 0 0 10px 10px;
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 255, 255, .8);
   display: flex;
   flex-direction: column;
   align-items: center;
