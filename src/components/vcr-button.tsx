@@ -16,16 +16,18 @@ export interface IVCRButtonProps {
   disabled?: boolean;
   running?: boolean;
   label?: string;
+  containerClassName?: string;
 }
 
 const ButtonContainer = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-bottom: 6px;
   border: none;
   min-width: 60px;
-  height: 74px;
+  height: 90px;
   border-radius: 9px 9px 0 0;
   cursor: ${(p: {disabled?: boolean}) => p.disabled ? "normal" : "pointer"};
   pointer-events: ${(p: {disabled?: boolean}) => p.disabled ? "none" : "auto"};
@@ -59,7 +61,7 @@ const ButtonBack = styled.div`
 const Label = styled.div`
   font-size: 16px;
   font-weight: 500;
-  margin-top: 5px;
+  margin-top: 10px;
   color: ${Colors.Gray["control-text"]};
   opacity: ${(p: {disabled?: boolean}) => p.disabled ? ".35" : "1"};
 `;
@@ -83,9 +85,9 @@ const StyledRewindButton = styled(SvgRewind)`
 `;
 
 export const VCRButton: React.FC<IVCRButtonProps> = (props) => {
-  const { label, type, onClick, running, disabled } = props;
+  const { label, type, onClick, running, disabled, containerClassName } = props;
   return(
-    <ButtonContainer onClick={onClick} disabled={disabled}>
+    <ButtonContainer onClick={onClick} disabled={disabled} className={containerClassName}>
       <ButtonHighlight className="vcr-button-highlight">
         <ButtonBack>
           { type === "play-pause"

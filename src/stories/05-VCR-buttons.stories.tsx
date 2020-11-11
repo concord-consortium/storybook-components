@@ -1,5 +1,6 @@
 import React from "react";
 import { VCRButton } from "../components/vcr-button";
+import "../style/style.css";
 
 export default {
   title: "VCR Button",
@@ -59,4 +60,11 @@ export const VCRLabeledRewindButton = () =>
     type={"rewind"}
     disabled={true}
     label="Rewind with long label"
+  />;
+
+export const VCRStyledButton = () =>
+  <VCRButton
+    type={"play-pause"}
+    label="Play"
+    containerClassName="button-class"
   />;
