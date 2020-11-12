@@ -10,6 +10,7 @@ export interface IProgressBarProps {
   currentTimeLabel: string;
   currentTime: number;
   maxTime: number;
+  customClassName?: string;
 }
 
 const Container = styled.div`
@@ -51,10 +52,10 @@ const ProgressFront = styled.div`
 `;
 
 export const ProgressBar: React.FC<IProgressBarProps> = (props) => {
-  const { currentTimeLabel, currentTime, maxTime} = props;
+  const { currentTimeLabel, currentTime, maxTime, customClassName } = props;
   const timerWidth = kMaxTimerWidth * (currentTime / maxTime);
   return(
-    <Container>
+    <Container className={customClassName}>
       <Label>{currentTimeLabel}</Label>
       <Progress>
         <ProgressBack />

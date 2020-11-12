@@ -66,5 +66,5 @@ export const VCRStyledButton = () =>
   <VCRButton
     type={"play-pause"}
     label="Play"
-    containerClassName="button-class"
+    customClassName="custom-class"
   />;

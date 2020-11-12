@@ -16,7 +16,7 @@ export interface IVCRButtonProps {
   disabled?: boolean;
   running?: boolean;
   label?: string;
-  containerClassName?: string;
+  customClassName?: string;
 }
 
 const ButtonContainer = styled.button`
@@ -85,9 +85,9 @@ const StyledRewindButton = styled(SvgRewind)`
 `;
 
 export const VCRButton: React.FC<IVCRButtonProps> = (props) => {
-  const { label, type, onClick, running, disabled, containerClassName } = props;
+  const { label, type, onClick, running, disabled, customClassName } = props;
   return(
-    <ButtonContainer onClick={onClick} disabled={disabled} className={containerClassName}>
+    <ButtonContainer onClick={onClick} disabled={disabled} className={customClassName}>
       <ButtonHighlight className="vcr-button-highlight">
         <ButtonBack>
           { type === "play-pause"
