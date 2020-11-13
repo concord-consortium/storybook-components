@@ -5,6 +5,7 @@ import PublishHover from "../components/svgr-icons/PublishHover";
 import {IconButton} from "../components/icon-button";
 import styled from "styled-components";
 import {Themes} from "../themes";
+import {action} from "@storybook/addon-actions";
 
 const Colors = Themes.Clue;
 const Gallery = styled.div`
@@ -18,6 +19,7 @@ const Gallery = styled.div`
 const BigBlock = styled.div`
   font-size: 70px;
 `;
+
 export default {
   title: "Icon Buttons",
   parameters: {
@@ -27,12 +29,11 @@ export default {
 };
 
 export const PublishToSupportsButton = () => {
-  const action = () => alert("click");
   return (
       <Gallery>
         <BigBlock>
           <IconButton
-            onClick={action}
+            onClick={action("click")}
             normalColor={Colors.Sage.sage}
             title="publish to supports"
             content={<Publish fill={Colors.Sky["sky-dark-3"]} />}
@@ -42,3 +43,6 @@ export const PublishToSupportsButton = () => {
     </Gallery>
   );
 };
+
+// storiesOf("IconButton", module)d
+//   .add("PublishToSupportsButton", PublishToSupportsButton);
