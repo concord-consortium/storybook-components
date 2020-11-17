@@ -31,3 +31,9 @@ export const styledSaveButton = () =>
     onClick={()=>{window.alert("Save")}}
     customClassName="custom-class"
   />;
+
+export const disabledSaveButton = () =>
+  <SaveButton
+    onClick={()=>{window.alert("Save")}}
+    disabled={true}
+  />;
