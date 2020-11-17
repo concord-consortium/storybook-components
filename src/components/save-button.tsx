@@ -8,6 +8,7 @@ const Colors = Themes.Simulation;
 export interface ISaveButtonProps {
   onClick?: (args?: any) => any;
   label?: string;
+  disabled?: boolean;
   customClassName?: string;
 }
 
@@ -20,7 +21,9 @@ const ButtonContainer = styled.button`
   border-radius: 5px;
   border: solid 1px ${Colors.Gray["control-text"]};
   background-color: white;
-  cursor: pointer;
+  cursor: ${(p: {disabled?: boolean}) => p.disabled ? "normal" : "pointer"};
+  pointer-events: ${(p: {disabled?: boolean}) => p.disabled ? "none" : "auto"};
+  opacity: ${(p: {disabled?: boolean}) => p.disabled ? ".35" : "1"};
   transition: background-color .25s;
   &:hover {
     background-color: ${Colors.Gray["control-gray-light-1"]};
@@ -52,9 +55,9 @@ const Label = styled.div`
 `;
 
 export const SaveButton: React.FC<ISaveButtonProps> = (props) => {
-  const { onClick, label, customClassName } = props;
+  const { onClick, label, customClassName, disabled } = props;
   return (
-    <ButtonContainer onClick={onClick} className={customClassName}>
+    <ButtonContainer onClick={onClick} disabled={disabled} className={customClassName}>
       <ButtonHighlight className="save-button-highlight">
         <StyledSaveButton />
       </ButtonHighlight>
