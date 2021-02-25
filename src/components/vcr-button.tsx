@@ -70,7 +70,7 @@ const sharedButtonStyle = css`
   height: 30px;
   width: 30px;
   opacity: ${(p: {disabled?: boolean}) => p.disabled ? ".35" : "1"};
-`
+`;
 
 const StyledPlayButton = styled(SvgPlay)`
   ${sharedButtonStyle}

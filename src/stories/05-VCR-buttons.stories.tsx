@@ -39,11 +39,11 @@ export const VCRDisabledRewindButton = () =>
 export const VCRClickablePlayButton = () =>
   <VCRButton
     type={"play-pause"}
-    onClick={()=>{window.alert("Play")}}
+    onClick={()=>{window.alert("Play");}}
     label="Start"
   />;
 
-  export const MultipleButtons = () =>
+export const MultipleButtons = () =>
     <div>
       <VCRButton
         type={"rewind"}
