@@ -1,3 +1,4 @@
+2021-02-24 : v.0.6.0 -- Switch to module format commonjs; general project cleanup.
 2020-11-17 : v.0.5.0 -- Add save button disabled state
 2020-11-12 : v.0.4.0 -- Add custom class; fix VCR, height, font-weight, and layout; fix progress bar opacity
 2020-11-02 : v.0.3.2 -- Fix button outline when button has focus
