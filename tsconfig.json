@@ -11,18 +11,20 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "outDir": "dist",
     "jsx": "react",
     "declaration": true,
-    "noEmit": false
+    "allowJs": true,
+    "isolatedModules": false
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "node_modules", "src/stories"
+    "node_modules",
+    "src/stories"
   ]
 }
