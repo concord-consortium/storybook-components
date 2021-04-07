@@ -34,26 +34,26 @@
     ]
   },
   "dependencies": {
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.3"
   },
   "peerDependencies": {
     "react": "^16.0",
     "react-dom": "^16.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.7.2",
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
     "@babel/preset-typescript": "^7.6.0",
-    "@storybook/addon-actions": "^5.2.5",
-    "@storybook/addon-docs": "^5.2.5",
-    "@storybook/addon-knobs": "^5.2.5",
-    "@storybook/addon-links": "^5.2.5",
-    "@storybook/addons": "^5.2.5",
-    "@storybook/react": "^5.2.5",
+    "@storybook/addon-actions": "^6.2.4",
+    "@storybook/addon-docs": "^6.2.4",
+    "@storybook/addon-knobs": "^6.2.4",
+    "@storybook/addon-links": "^6.2.4",
+    "@storybook/addons": "^6.2.4",
+    "@storybook/react": "^6.2.4",
     "@types/node": "12.11.5",
-    "@types/react": "^16.14.4",
-    "@types/react-dom": "^16.9.11",
-    "@types/styled-components": "^5.1.7",
+    "@types/react": "^16.14.5",
+    "@types/react-dom": "^16.9.12",
+    "@types/styled-components": "^5.1.9",
     "npm-run-all": "^4.1.5",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -61,7 +61,7 @@
     "rimraf": "^3.0.0",
     "tslint": "^5.20.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.9.9"
+    "typescript": "^4.2.3"
   },
   "bugs": {
     "url": "https://github.com/concord-consortium/concord-react-components/issues"
