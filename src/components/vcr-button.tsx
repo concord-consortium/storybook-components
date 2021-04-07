@@ -15,7 +15,7 @@ export interface IVCRButtonProps {
   title?: string;
   disabled?: boolean;
   running?: boolean;
-  label?: string;
+  label?: string | (() => React.ReactNode);
   customClassName?: string;
 }
 
@@ -98,7 +98,7 @@ export const VCRButton: React.FC<IVCRButtonProps> = (props) => {
           }
         </ButtonBack>
       </ButtonHighlight>
-      {label && <Label disabled={disabled}>{label}</Label>}
+      {label && <Label disabled={disabled}>{label instanceof Function ? label() : label}</Label>}
     </ButtonContainer>
   );
 };
