@@ -1,6 +1,6 @@
 {
   "name": "@concord-consortium/react-components",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "private": false,
   "description": "An assorted collection of components",
   "main": "./dist/index.js",
@@ -37,8 +37,8 @@
     "styled-components": "^5.2.3"
   },
   "peerDependencies": {
-    "react": "^16.0",
-    "react-dom": "^16.0"
+    "react": ">=16 <=17",
+    "react-dom": ">=16 <=17"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",

@@ -36,10 +36,10 @@ export const VCRDisabledRewindButton = () =>
     label="Rewind"
   />;
 
-export const VCRFunctionLabelPlayButton = () =>
+export const VCRReactNodeLabelPlayButton = () =>
   <VCRButton
     type={"play-pause"}
-    label={() => <span style={{ color: "red" }}>Play</span>}
+    label={<span style={{ color: "red" }}>Play</span>}
   />;
 
 export const VCRClickablePlayButton = () =>
