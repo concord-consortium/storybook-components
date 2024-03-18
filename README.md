@@ -30,6 +30,10 @@ to remove the link, and link to actual NPM package later. The best practice when
 this sort of work is probably to remove node_modules and do a clean install of
 `concord-react-components` from npm.
 
+# TODO
+
+`yarn` does not seem to be used anymore, the following instructions need to be updated.
+
 ## Publishing changes
 * `yarn build` to build `./dist`
 * Adjust the version number in `package.json` adhering to semver. If the

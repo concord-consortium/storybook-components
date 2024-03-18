@@ -1,5 +1,5 @@
 import React from "react";
-import { ToggleGroup } from "../components/toggle-group";
+import { IToggleColors, ToggleGroup } from "../components/toggle-group";
 import styled from "styled-components";
 import { Themes } from "../themes";
 
@@ -47,13 +47,13 @@ export const basicHorizontal = () =>
   </Header>;
 
 export const customColors = () => {
-  const oddColors = {
+  const oddColors: IToggleColors = {
     selectedColor: {color: "black", background: "white"},
     unselectedColor: {color: "white", background: "orange"},
     hoverColor: {color: "black", background: "yellow"}
   };
 
-  const colors = {
+  const colors: IToggleColors = {
     selectedColor: {color: "white", background: "red"},
     unselectedColor: {color: "white", background: "gray"},
     hoverColor: {color: "white", background: "blue"}

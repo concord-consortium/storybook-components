@@ -58,7 +58,7 @@ const ButtonBack = styled.div`
   background-color: white;
 `;
 
-const Label = styled.div`
+const Label = styled.div<{disabled?: boolean}>`
   font-size: 16px;
   font-weight: 500;
   margin-top: 10px;
@@ -66,23 +66,11 @@ const Label = styled.div`
   opacity: ${(p: {disabled?: boolean}) => p.disabled ? ".35" : "1"};
 `;
 
-const sharedButtonStyle = css`
+const SvgButton = styled.div<{disabled?: boolean}>`
   height: 30px;
   width: 30px;
   opacity: ${(p: {disabled?: boolean}) => p.disabled ? ".35" : "1"};
-`;
-
-const StyledPlayButton = styled(SvgPlay)`
-  ${sharedButtonStyle}
-`;
-
-const StyledPauseButton = styled(SvgPause)`
-  ${sharedButtonStyle}
-`;
-
-const StyledRewindButton = styled(SvgRewind)`
-  ${sharedButtonStyle}
-`;
+`
 
 export const VCRButton: React.FC<IVCRButtonProps> = (props) => {
   const { label, type, onClick, running, disabled, customClassName } = props;
@@ -92,9 +80,9 @@ export const VCRButton: React.FC<IVCRButtonProps> = (props) => {
         <ButtonBack>
           { type === "play-pause"
             ? running
-              ? <StyledPauseButton disabled={disabled} />
-              : <StyledPlayButton disabled={disabled} />
-            : <StyledRewindButton disabled={disabled} />
+              ? <SvgButton as={SvgPause} disabled={disabled} />
+              : <SvgButton as={SvgPlay} disabled={disabled} />
+            : <SvgButton as={SvgRewind} disabled={disabled} />
           }
         </ButtonBack>
       </ButtonHighlight>
